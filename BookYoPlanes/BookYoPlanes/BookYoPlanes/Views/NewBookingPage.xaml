@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BookYoPlanes.Views.NewBookingPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Margin="20,15,20,25">
+            <Image         Source="flylogo.png"
+                           Aspect="AspectFit"
+                           HeightRequest="150"
+                           WidthRequest="150" 
+                           VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal"  Padding="0,20,0,0">
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" Padding="0,0,0,0">
+                <Image     x:Name="planePreview"
+                           Aspect="AspectFit"
+                           HeightRequest="150"
+                           WidthRequest="150" 
+                           VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="chair.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="seats" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="bag.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="luggage" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="golf.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="golfbags" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="advanture.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="skibags" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="wify.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="wifi" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Image HorizontalOptions="Center">
+                            <Image.Source>
+                                <FileImageSource File="pet.png" />
+                            </Image.Source>
+                        </Image>
+                        <Label x:Name="pet" Text="-" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Text="Demo User" TextColor="LightPink" IsEnabled="False" HorizontalOptions="Center" WidthRequest="150"></Entry>
+
+                    <Picker WidthRequest="175"
+                    Title="Select a plane"
+                    TitleColor="Black"
+                    x:Name="planePicker"
+                    ItemDisplayBinding="{Binding Name}"
+                            SelectedIndex="0"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged"
+                />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Check-In" VerticalTextAlignment="Center" FontSize="14" WidthRequest="65"></Label>
+                    <DatePicker
+                        x:Name="checkInDate"
+                    Format="D"
+                    Margin="0, 0, 0, 0"
+                        FontSize="12"
+                    WidthRequest="260"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Check-Out" VerticalTextAlignment="Center" FontSize="14" WidthRequest="65" ></Label>
+                    <DatePicker
+                        x:Name="checkOutDate"
+                    Format="D"
+                    Margin="0, 0, 0, 0"
+                        FontSize="12"
+                    WidthRequest="260"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Back"
+                    HeightRequest="40"
+                    BackgroundColor="#093c71" 
+                    BorderColor="White"
+                    TextColor="White"
+                    BorderWidth="0.75"
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Clicked="goBackButtonClicked"/>
+                    <Button Text="Submit"
+                    HeightRequest="40"
+                    BackgroundColor="#006e1f" 
+                    BorderColor="White"
+                    TextColor="White"
+                    BorderWidth="0.75"
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    Clicked="submitBooking"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

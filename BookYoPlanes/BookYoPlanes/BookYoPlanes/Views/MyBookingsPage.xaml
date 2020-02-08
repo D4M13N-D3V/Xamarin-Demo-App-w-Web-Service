@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BookYoPlanes.Views.MyBookingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Margin="20,15,20,100">
+                <Image         Source="flylogo.png"
+                           Aspect="AspectFit"
+                           HeightRequest="150"
+                           WidthRequest="150" 
+                           VerticalOptions="Center"/>
+                <Button Text="Back"
+                    HeightRequest="40"
+                    BackgroundColor="#093c71" 
+                    BorderColor="White"
+                    TextColor="White"
+                    BorderWidth="0.75"
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Clicked="goBackButtonClicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"  Padding="0,0,0,0">
+                <ScrollView>
+                    <ListView   x:Name="bookingsListView"
+                                HasUnevenRows="true">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="1"
+                                            Source="{Binding Plane.ImageFile}"
+                                            Aspect="Fill"
+                                            HeightRequest="75"
+                                            WidthRequest="200" 
+                                               VerticalOptions="Center"/>
+                                        <Label Grid.Column="3" FontSize="Small" Text="{Binding StartText}"/>
+                                        <Label Grid.Column="4" FontSize="Small" Text="{Binding EndText}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

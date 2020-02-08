@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:WorkingWithImages;assembly=WorkingWithImages"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BookYoPlanes.Views.PlanesPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20,15,20,25">
+            <Image         Source="flylogo.png"
+                           Aspect="AspectFit"
+                           HeightRequest="150"
+                           WidthRequest="150" 
+                           VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal"  Padding="0,20,0,0">
+                <Button Text="Back"
+                    HeightRequest="40"
+                    BackgroundColor="#093c71" 
+                    BorderColor="White"
+                    TextColor="White"
+                    BorderWidth="0.75"
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Clicked="backButtonClicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"  Padding="0,20,0,0">
+                <ScrollView>
+                    <ListView   x:Name="planesListView"
+                                HasUnevenRows="true"
+                              ItemTapped="ListView_ItemTapped"
+                              ItemSelected="ListView_ItemSelected">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50" />
+                                            <RowDefinition Height="50" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2"
+                           Source="{Binding ImageFile}"
+                           Aspect="AspectFit"
+                           HeightRequest="50"
+                           WidthRequest="50" 
+                                               VerticalOptions="Center"/>
+                                        <Label Grid.Column="1"
+                           Text="{Binding Name}"
+                           FontAttributes="Bold" />
+                                        <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Text="{Binding Description}"
+                           VerticalOptions="Start" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
